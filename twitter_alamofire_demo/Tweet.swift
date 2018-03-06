@@ -18,10 +18,9 @@ class Tweet {
     var retweetCount: Int // Update favorite count label
     var retweeted: Bool // Configure retweet button
     var user: User // Contains name, screenname, etc. of tweet author
-    var name: String?
-    var screenName: String?
+   
     var createdAtString: String // Display date
-    var profileImage: URL?
+   
     
     // MARK: - Create initializer with dictionary
     init(dictionary: [String: Any]) {
@@ -46,9 +45,8 @@ class Tweet {
         formatter.timeStyle = .none
         // Convert Date to String
         createdAtString = formatter.string(from: date)
-        name = dictionary["name"] as? String
-        screenName = dictionary["screen_name"] as? String
-        profileImage = dictionary["profile_image_url"] as? URL
+        
+        
         
         
     }
