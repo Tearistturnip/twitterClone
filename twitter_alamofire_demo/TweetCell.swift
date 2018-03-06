@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var timeStampLabel: UILabel!
+    @IBOutlet weak var profilePicImageView: UIImageView!
+    
+    
     
     var tweet: Tweet! {
         didSet {
             tweetTextLabel.text = tweet.text
+            nameLabel.text = tweet.name
+            usernameLabel.text = tweet.screenName
+            timeStampLabel.text = tweet.createdAtString
+            let posterURL = tweet.profileImage
+            profilePicImageView.af_setImage(withURL: posterURL)
         }
     }
     
