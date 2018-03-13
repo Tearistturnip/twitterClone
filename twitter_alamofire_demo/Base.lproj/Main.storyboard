@@ -158,7 +158,7 @@
                                             <outlet property="timeStampLabel" destination="lbk-MN-yoK" id="ZFY-CJ-vYm"/>
                                             <outlet property="tweetTextLabel" destination="epC-Fs-Q5Z" id="ZLP-IG-Wsf"/>
                                             <outlet property="usernameLabel" destination="UcI-5f-gbd" id="KE7-se-xXv"/>
-                                            <segue destination="aQD-yx-wdl" kind="show" id="3UB-gF-uYR"/>
+                                            <segue destination="aQD-yx-wdl" kind="show" identifier="detailSegue" id="3UB-gF-uYR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -178,9 +178,13 @@
                                 <rect key="frame" x="16" y="8.5" width="84" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="edit-icon"/>
+                                <connections>
+                                    <action selector="toTweetAction:" destination="5YO-Vh-39k" eventType="touchUpInside" id="Pia-ar-Uo4"/>
+                                </connections>
                             </button>
                             <connections>
-                                <segue destination="awA-zR-QYb" kind="presentation" id="oyp-fs-XF6"/>
+                                <action selector="toTweetAction:" destination="5YO-Vh-39k" id="L4Z-Pn-I7u"/>
+                                <segue destination="awA-zR-QYb" kind="presentation" identifier="toTweet" id="oyp-fs-XF6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="hz2-ji-ft0">
@@ -221,9 +225,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cif-n7-5f8">
+                                <rect key="frame" x="309" y="242" width="54" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tweet">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPost:" destination="awA-zR-QYb" eventType="touchUpInside" id="oea-k9-9SB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tweetText" destination="tWL-9u-BiB" id="AMw-22-oVb"/>
+                        <outlet property="userPicImage" destination="77o-75-GbP" id="phK-Jj-JFH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wb-t8-dCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

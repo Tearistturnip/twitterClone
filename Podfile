@@ -6,12 +6,12 @@ target 'twitter_alamofire_demo' do
   use_frameworks!
 
   # Pods for twitter_alamofire_demo
-  pod 'Alamofire'
-  pod 'AlamofireImage'
-  pod 'OAuthSwift'
-  pod 'OAuthSwiftAlamofire'
-  pod 'KeychainAccess'
-  pod 'RSKPlaceholderTextView'
+  pod 'Alamofire', '~> 4.4.0'
+  pod 'AlamofireImage', '~> 3.2.0'
+  pod 'OAuthSwift', '~> 1.1.1'
+  pod 'OAuthSwiftAlamofire', '~> 0.1.0'
+  pod 'KeychainAccess', '~> 3.0.1'
+  pod 'RSKPlaceholderTextView', '~> 2.0.0'
 
   target 'twitter_alamofire_demoTests' do
     inherit! :search_paths
