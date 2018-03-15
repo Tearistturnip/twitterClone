@@ -41,8 +41,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     func did(post: Tweet) {
         print("work 2")
-        //dismiss(animated: true){
-        //}
+        dismiss(animated: true){
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,6 +104,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 let detailViewController = segue.destination as! TweetDetailViewController
                 detailViewController.tweet = tweet
             }
+        }
+        if(segue.identifier == "toTweet"){
+            let vc = segue.destination as! ComposeViewController
+            vc.delegate = self
         }
         
     }

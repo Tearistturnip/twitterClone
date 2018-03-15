@@ -22,11 +22,25 @@ class ComposeViewController: UIViewController {
 
     @IBOutlet weak var userPicImage: UIImageView!
     
-    @IBOutlet weak var tweetText: RSKPlaceholderTextView!
+    @IBOutlet weak var tweetText: UITextView!
+    
+    
+    @IBOutlet weak var characterCountLabel: UILabel!
+
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //userPicImage.af
+        /*
+        self.tweetText = RSKPlaceholderTextView(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 100))
+        self.tweetText.placeholder = "yes"
+        view.addSubview(self.tweetText)
+         */
+        tweetText.delegate = self as! UITextViewDelegate
+        
 
         // Do any additional setup after loading the view.
     }
@@ -48,6 +62,20 @@ class ComposeViewController: UIViewController {
         
     }
     
+    func tweetText(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // TODO: Check the proposed new text character count
+        // Allow or disallow the new text
+        let characterLimit = 140
+        
+        // Construct what the new text would be if we allowed the user's latest edit
+        let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
+        
+        // TODO: Update Character Count Label
+        
+        // The new text should be allowed? True/False
+        print(String(newText.count < characterLimit))
+        return newText.count < characterLimit
+    }
     /*
     // MARK: - Navigation
 
